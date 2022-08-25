@@ -1,0 +1,27 @@
+doctype html
+html
+    header
+        title Course For Enrolment
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
+    body
+        div
+            h2.text-center.font-weight-bold.text-danger Course Information
+            table.table.table-hover
+                tbody
+                    tr.font-weight-bold.table-secondary
+                        td Course
+                        td Time
+                        td CourseCode
+                        td EnrolmentTime
+                        td NumberOfCredits
+                        td 
+                    each course in courses
+                        tr
+                            td #{course.Course}
+                            td #{course.Time}
+                            td #{course.CourseCode}
+                            td #{course.EnrolmentTime}
+                            td #{course.NumberOfCredits}
+                      
+        div.text-center
+            a(href='/AddCourse').btn.btn-link Add Course
