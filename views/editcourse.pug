@@ -7,15 +7,15 @@ html
         h1.text-danger.col-sm-10 Edit Course 
         form(action = "/EditCourse/:id",method = 'PUT')
             div.form-group.col-sm-10
-                input(type= 'text', name='Course',placeholder=course.Course).form-control
+                input(type= 'text', name='Course',value=course.Course).form-control
             div.form-group.col-sm-10
-                input(type= 'text', name='Time', placeholder='Time').form-control
+                input(type= 'text', name='Time', value=course.Time).form-control
             div.form-group.col-sm-10
-                input(type= 'text', name='CourseCode', placeholder='Course Code').form-control
+                input(type= 'text', name='CourseCode', value=course.CourseCode).form-control
             div.form-group.col-sm-10
-                input(type= 'text', name='EnrolmentTime', placeholder='Enrolment Time').form-control
+                input(type= 'text', name='EnrolmentTime', value=course.EnrolmentTime).form-control
             div.form-group.col-sm-10
-                input(type= 'text', name='NumberOfCredits', placeholder='Number Of Credits').form-control
+                input(type= 'text', name='NumberOfCredits', value=course.NumberOfCredits).form-control
             div.form-group.col-sm-10
                 input(type= 'submit', value='Save').btn.btn-primary
         div 
