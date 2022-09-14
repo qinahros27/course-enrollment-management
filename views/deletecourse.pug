@@ -1,0 +1,26 @@
+doctype html
+html
+    header
+        title Delete Course
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous")
+    body
+        div
+            h3.font-weight-bold.text-danger Are you sure you want to delete this?
+            row
+                dt.col-sm-2 Course 
+                dd.col-sm-10 #{course.Course}
+                dt.col-sm-2 Time 
+                dd.col-sm-10 #{course.Time}
+                dt.col-sm-2 Course Code 
+                dd.col-sm-10 #{course.CourseCode}
+                dt.col-sm-2 Enrolment Time 
+                dd.col-sm-10 #{course.EnrolmentTime}
+                dt.col-sm-2 Number Of Credits 
+                dd.col-sm-10 #{course.NumberOfCredits}
+            form(action='/DeleteCourse/:id' , method = 'DELETE')
+                div.form-group.col-sm-10
+                    input(type= 'submit', value='Delete').btn.btn-primary
+            
+
+        div
+            a(href='/').btn.btn-link Back to Main Page

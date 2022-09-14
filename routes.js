@@ -37,14 +37,21 @@ router.post("/AddCourse", async(req,res)=> {
     
 })
 
-router.delete("/courses",async(req,res) => {
-    await Course.deleteOne({brand: req.body.CourseCode}).exec((err,result) => {
+router.get('/DeleteCourse/:id',async(req,res)=> {
+    const course= await Course.findById({_id: req.params.id});
+        res.render('deletecourse', {course: course}); 
+  })
+
+
+router.delete("/DeleteCourse/:id",async(req,res) => {
+    await Course.findByIdAndDelete({_id: req.params.id}, {new:true}).exec((err,result) => {
         if(err) {
             return res.status(500).json({message: err.message});
         }
         else {
-            return res.status(200).json(result);
+            res.redirect('/');
         }
+        res.redirect('/');
     });
 })
 
@@ -59,9 +66,14 @@ router.put("/EditCourse/:id", async(req,res) => {
             return res.status(500).json({message: err.message});
         }
         else {
-            return res.status(200).json({result});
+            res.redirect('/');
         }
     })
 })
+
+router.get('/DetailsCourse/:id',async(req,res)=> {
+    const course= await Course.findById({_id: req.params.id});
+        res.render('detailcourse', {course: course}); 
+  })
 
 module.exports = router;

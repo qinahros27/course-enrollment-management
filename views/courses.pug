@@ -23,9 +23,9 @@ html
                             td #{course.EnrolmentTime}
                             td #{course.NumberOfCredits}
                             td 
-                                 a(href='/EditCourse/').btn.btn-link Edit | 
-                                 a(href='/DetailsCourse').btn.btn-link Details |
-                                 a(href='/DeleteCourse').btn.btn-link Delete 
+                                 a(href='/EditCourse/' + `${course._id}`).btn.btn-link Edit | 
+                                 a(href='/DetailsCourse/' + `${course._id}`).btn.btn-link Details |
+                                 a(href='/DeleteCourse/' + `${course._id}`).btn.btn-link Delete 
                       
         div.text-center
             a(href='/AddCourse').btn.btn-link Add Course
