@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const Course = require('./course');
 
-router.get("/courses", async(req,res)=> {
+router.get("/", async(req,res)=> {
     try {
         const courses = await Course.find();
         /*res.send(courses);*/
@@ -30,7 +30,7 @@ router.post("/AddCourse", async(req,res)=> {
     try {
         const courses = await newCourse.save();
         /*res.status(201).json({courses});*/
-        res.redirect('/courses');
+        res.redirect('/');
     }catch(err) {
         return res.status(500).json({message: err.message});
     }
@@ -38,7 +38,7 @@ router.post("/AddCourse", async(req,res)=> {
 })
 
 router.delete("/courses",async(req,res) => {
-    await Car.deleteOne({brand: req.body.CourseCode}).exec((err,result) => {
+    await Course.deleteOne({brand: req.body.CourseCode}).exec((err,result) => {
         if(err) {
             return res.status(500).json({message: err.message});
         }
@@ -48,8 +48,13 @@ router.delete("/courses",async(req,res) => {
     });
 })
 
-router.put("/courses/:id", async(req,res) => {
-    await Car.findOneAndUpdate({_id: req.params.id}, req.body, {new:true}).exec((err,result) => {
+router.get('/EditCourse/:id',async(req,res)=> {
+    const course= await Course.findById({_id: req.params.id});
+        res.render('editcourse', {course: course}); 
+  })
+
+router.put("/EditCourse/:id", async(req,res) => {
+    await Course.findOneAndUpdate({_id: req.params.id}, req.body, {new:true}).exec((err,result) => {
         if(err) {
             return res.status(500).json({message: err.message});
         }

@@ -22,6 +22,11 @@ html
                             td #{course.CourseCode}
                             td #{course.EnrolmentTime}
                             td #{course.NumberOfCredits}
+                            td 
+                               
+                                 a(href= '/EditCourse/:id') Edit | 
+                                 a(href='/DetailsCourse').btn.btn-link Details |
+                                 a(href='/DeleteCourse').btn.btn-link Delete 
                       
         div.text-center
             a(href='/AddCourse').btn.btn-link Add Course
