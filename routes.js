@@ -51,7 +51,6 @@ router.delete("/DeleteCourse/:id",async(req,res) => {
         else {
             res.redirect('/');
         }
-        res.redirect('/');
     });
 })
 
@@ -60,7 +59,7 @@ router.get('/EditCourse/:id',async(req,res)=> {
         res.render('editcourse', {course: course}); 
   })
 
-router.put("/EditCourse/:id", async(req,res) => {
+router.put('/EditCourse/:id', async(req,res) => {
     await Course.findOneAndUpdate({_id: req.params.id}, req.body, {new:true}).exec((err,result) => {
         if(err) {
             return res.status(500).json({message: err.message});

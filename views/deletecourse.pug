@@ -17,9 +17,11 @@ html
                 dd.col-sm-10 #{course.EnrolmentTime}
                 dt.col-sm-2 Number Of Credits 
                 dd.col-sm-10 #{course.NumberOfCredits}
-            form(action='/DeleteCourse/:id' , method = 'DELETE')
+            form(action='/DeleteCourse/'+ `${course._id}` + '?_method=DELETE' , method = 'POST')
                 div.form-group.col-sm-10
-                    input(type= 'submit', value='Delete').btn.btn-primary
+                    input(type="hidden" name="_method" value="DELETE")
+                div.form-group.col-sm-10
+                    input(type='submit', value='Delete').btn.btn-primary
             
 
         div
